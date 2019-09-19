@@ -1,11 +1,12 @@
 const ApolloServer  = require( 'apollo-server-express');
 const typeDefs = require('./graphql/typedefs');
-const  resolvers = require ( './graphql/resolvers');
+const resolvers = require ( './graphql/resolvers');
 const express = require('express');
 const app = express();
 
 // TODO: We will not pass dataSources via context because this does not work with subscriptions
 // See https://github.com/apollographql/apollo-server/issues/1526
+
 const server = new ApolloServer.ApolloServer({ typeDefs, resolvers });
 server.applyMiddleware({ app });
 
